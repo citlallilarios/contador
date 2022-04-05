@@ -4,7 +4,13 @@ import "./app.css";
 const App = () => {
   const [cuenta, setCuenta] = useState({valor: 0, paso: 1}); 
 
-  const handleClick = (v) => {
+  const handleMinusClick = (v) => {
+    setCuenta({...cuenta, valor: cuenta.valor - cuenta.paso });
+  };
+  const handleResetClick = (v) => {
+    setCuenta({...cuenta, valor: 0});
+  };
+  const handlePlusClick = (v) => {
     setCuenta({...cuenta, valor: cuenta.valor + cuenta.paso });
   };
 
@@ -47,7 +53,11 @@ const App = () => {
         <input type="text" style={{ width: "60px", margin: "5px" }} onChange={handleChange} onKeyDown={handleKeyDown} />
         </label>
       <button   className="btn btn-primary me-2" 
-      onClick={ handleClick}>+{cuenta.paso} </button>
+      onClick={ handleMinusClick}>+{cuenta.paso} </button>
+      <button   className="btn btn-primary me-2" 
+      onClick={ handleResetClick}>+{cuenta.paso} Reset </button>
+      <button   className="btn btn-primary me-2" 
+      onClick={ handlePlusClick}>+{cuenta.paso} </button>
       </div>
     </div>
   );
